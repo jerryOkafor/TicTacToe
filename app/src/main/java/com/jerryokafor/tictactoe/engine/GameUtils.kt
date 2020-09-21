@@ -102,10 +102,10 @@ object GameUtils {
     /**
      * Returns a readable game won text
      * */
-    fun gameResult(board: ArrayList<String>): String {
+    fun gameResult(board: ArrayList<String>, singleMode: Boolean): String {
         when {
-            isGameWon(board, PLAYER_X) -> return "YOU Won"
-            isGameWon(board, PLAYER_O) -> return "COMPUTER Won"
+            isGameWon(board, PLAYER_X) -> return "${if (singleMode) "YOU" else "PLAYER X"} Won"
+            isGameWon(board, PLAYER_O) -> return "${if (singleMode) "COMPUTER" else "PLAYER O"} Won"
             isBoardFull(board) -> return "It is Tie"
         }
         return "Tie"

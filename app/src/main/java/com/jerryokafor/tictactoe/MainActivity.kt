@@ -29,10 +29,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TicTacToeTheme {
-                Scaffold(topBar = { TicTacAppBar(mainViewModel.singlePlayer) { mainViewModel.updatePlayerMode() } }) {
+                Scaffold(topBar = {
+                    TicTacAppBar(mainViewModel.singlePlayer) {
+                        mainViewModel.updatePlayerMode(it)
+                    }
+                }) {
                     // A surface container using the 'background' color from the theme
                     Surface(color = MaterialTheme.colors.background) {
-//
                         Column(
                             horizontalGravity = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.SpaceAround,
@@ -53,7 +56,11 @@ class MainActivity : AppCompatActivity() {
                             //Play with a friend
                             TextButton(
                                 onClick = {
-                                    Toast.makeText(this@MainActivity,"Coming soon",Toast.LENGTH_LONG).show()
+                                    Toast.makeText(
+                                        this@MainActivity,
+                                        "Coming soon",
+                                        Toast.LENGTH_LONG
+                                    ).show()
                                 },
                                 modifier = Modifier.padding(16.dp).preferredHeight(50.dp),
                             ) {
