@@ -4,8 +4,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 object GameUtils {
-    const val PLAYER_X = "X"
-    const val PLAYER_O = "O"
+    const val PLAYER_X = "X" //player 1
+    const val PLAYER_O = "O" //player 2 or computer
 
     /**
      * Determine if the board is full
@@ -47,10 +47,37 @@ object GameUtils {
     }
 
     /**
-     * Chooses a random move for the computer
+     * Chooses a random move for the computer based on the order of
+     * priority to make the computer win. It mimics AI
      * */
     fun computerMove(board: ArrayList<String>): Int {
+        //check if computer can win in this move
+        for (i in 0 until board.count()) {
+            val copy = copyBoard(board)
+            if (copy[i] == "") copy[i] = PLAYER_O
 
+            //check for win
+            if (isGameWon(copy, PLAYER_O)) return i
+        }
+
+
+        //check if player could win in the next move
+        for (i in 0 until board.count()) {
+            val copy = copyBoard(board)
+            if (copy[i] == "") copy[i] = PLAYER_X
+
+            if (isGameWon(copy, PLAYER_X)) return i
+        }
+
+        //try to make corners if it is free
+        val move = chooseRandomMove(board, arrayListOf(0, 2, 6, 8))
+        if (move != -1) return move
+
+        //try to take center if it is free
+        if (board[4] == "") return 4
+
+        //finally try to make the sides
+        return chooseRandomMove(board, arrayListOf(1, 3, 5, 7))
     }
 
 
@@ -76,12 +103,11 @@ object GameUtils {
      * Returns a readable game won text
      * */
     fun gameResult(board: ArrayList<String>): String {
-        if (isGameWon(board, PLAYER_X)) return "YOU"
-        else if (isGameWon(board, PLAYER_O)) return "COMPUTER"
-
-        if (isBoardFull(board)) {
-            return "Tie"
+        when {
+            isGameWon(board, PLAYER_X) -> return "YOU Won"
+            isGameWon(board, PLAYER_O) -> return "COMPUTER Won"
+            isBoardFull(board) -> return "It is Tie"
         }
-
+        return "Tie"
     }
 }

@@ -54,6 +54,9 @@ dependencies {
     implementation(Kotlin.stdlib)
 
     implementation(AndroidX.coreKtx)
+
+    implementation(AndroidX.activityKtx)
+    implementation(AndroidX.fragmentKtx)
     implementation(AndroidX.appComppat)
 
     implementation(AndroidX.composeUI)

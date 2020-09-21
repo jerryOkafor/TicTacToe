@@ -58,6 +58,9 @@ object AndroidX : Libraries {
     object Version {
         const val coreKtx = "1.3.1"
         const val appCompat = "1.2.0"
+        const val activityKtx = "1.1.0"
+        const val fragmentKtx = "1.2.5"
+        const val collectionKtx = "1.1.0"
         const val lifeCycle = "2.3.0-alpha06"
         const val coreTesting = "2.1.0"
         const val compose = "1.0.0-alpha02"
@@ -68,6 +71,8 @@ object AndroidX : Libraries {
 
     const val lifeCycleRuntime =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifeCycle}"
+    const val activityKtx = "androidx.activity:activity-ktx:${Version.activityKtx}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Version.fragmentKtx}"
     const val coreTesting = "androidx.arch.core:core-testing:${Version.coreTesting}"
 
     const val composeUI = "androidx.compose.ui:ui:${Version.compose}"
