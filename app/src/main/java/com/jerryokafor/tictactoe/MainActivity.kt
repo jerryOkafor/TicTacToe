@@ -1,6 +1,7 @@
 package com.jerryokafor.tictactoe
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Box
@@ -51,7 +52,9 @@ class MainActivity : AppCompatActivity() {
 
                             //Play with a friend
                             TextButton(
-                                onClick = { mainViewModel.updatePlayerMode() },
+                                onClick = {
+                                    Toast.makeText(this@MainActivity,"Coming soon",Toast.LENGTH_LONG).show()
+                                },
                                 modifier = Modifier.padding(16.dp).preferredHeight(50.dp),
                             ) {
                                 Text(
