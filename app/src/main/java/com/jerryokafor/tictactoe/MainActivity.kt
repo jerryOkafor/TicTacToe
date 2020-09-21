@@ -111,26 +111,26 @@ fun ResetButton(onClick: () -> Unit) {
 fun ButtonGrid(board: ArrayList<String>, onclick: (Int) -> Unit) {
     Column(verticalArrangement = Arrangement.SpaceEvenly) {
         Row(horizontalArrangement = Arrangement.SpaceEvenly) {
-            ButtonExample(text = board[0]) { onclick(0) }
-            ButtonExample(text = board[1]) { onclick(1) }
-            ButtonExample(text = board[2]) { onclick(2) }
+            TicTacToeButton(text = board[0]) { onclick(0) }
+            TicTacToeButton(text = board[1]) { onclick(1) }
+            TicTacToeButton(text = board[2]) { onclick(2) }
         }
 
         Row(horizontalArrangement = Arrangement.SpaceAround) {
-            ButtonExample(text = board[3]) { onclick(3) }
-            ButtonExample(text = board[4]) { onclick(4) }
-            ButtonExample(text = board[5]) { onclick(5) }
+            TicTacToeButton(text = board[3]) { onclick(3) }
+            TicTacToeButton(text = board[4]) { onclick(4) }
+            TicTacToeButton(text = board[5]) { onclick(5) }
         }
         Row {
-            ButtonExample(text = board[6]) { onclick(6) }
-            ButtonExample(text = board[7]) { onclick(7) }
-            ButtonExample(text = board[8]) { onclick(8) }
+            TicTacToeButton(text = board[6]) { onclick(6) }
+            TicTacToeButton(text = board[7]) { onclick(7) }
+            TicTacToeButton(text = board[8]) { onclick(8) }
         }
     }
 }
 
 @Composable
-fun ButtonExample(text: String, onclick: () -> Unit) {
+fun TicTacToeButton(text: String, onclick: () -> Unit) {
     Box(modifier = Modifier.padding(8.dp)) {
         Button(onClick = onclick, enabled = text.isBlank()) {
             Text(

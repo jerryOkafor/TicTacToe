@@ -28,7 +28,7 @@ class MainViewModel : ViewModel() {
 
     fun play(move: Int) {
         if (isGameOver) return
-        
+
         if (board[move] == "") {
             if (currentPlayer == PLAYER_X) {
                 board = ArrayList(board.toMutableList().also {
