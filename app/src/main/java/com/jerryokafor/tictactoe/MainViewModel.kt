@@ -1,5 +1,6 @@
 package com.jerryokafor.tictactoe
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -70,6 +71,8 @@ class MainViewModel : ViewModel() {
         //calculate and show game result
         isGameOver = isGameWon(board, PLAYER_X) || isGameWon(board, PLAYER_O) || isBoardFull(board)
         winner = GameUtils.gameResult(board, singlePlayer)
+
+        Log.d(TAG, "$board")
     }
 
     fun reset() {

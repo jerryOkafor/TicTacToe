@@ -97,7 +97,7 @@ object GameUtils {
 
         //check diagonals
         else if (board[6] == player && board[4] == player && board[2] == player) true
-        else board[0] == player && board[4] == player && board[4] == player
+        else board[0] == player && board[4] == player && board[8] == player
 
     /**
      * Returns a readable game won text
