@@ -6,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Box
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -27,31 +28,62 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TicTacToeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
+                Scaffold(topBar = { TicTacAppBar(mainViewModel.singlePlayer) { mainViewModel.updatePlayerMode() } }) {
+                    // A surface container using the 'background' color from the theme
+                    Surface(color = MaterialTheme.colors.background) {
 //
-                    Column(
-                        horizontalGravity = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.SpaceAround,
-                        modifier = Modifier.fillMaxHeight()
-                    ) {
-                        ButtonGrid(board = mainViewModel.board, mainViewModel::play)
-                        if (mainViewModel.isGameOver) {
-                            Box {
+                        Column(
+                            horizontalGravity = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.SpaceAround,
+                            modifier = Modifier.fillMaxHeight()
+                        ) {
+                            ButtonGrid(board = mainViewModel.board, mainViewModel::play)
+                            if (mainViewModel.isGameOver) {
+                                Box {
+                                    Text(
+                                        text = "Game is Over: ${mainViewModel.winner}",
+                                        fontSize = 20.sp
+                                    )
+                                }
+                            }
+
+                            ResetButton(onClick = mainViewModel::reset)
+
+                            //Play with a friend
+                            TextButton(
+                                onClick = { mainViewModel.updatePlayerMode() },
+                                modifier = Modifier.padding(16.dp).preferredHeight(50.dp),
+                            ) {
                                 Text(
-                                    text = "Game is Over: ${mainViewModel.winner}",
-                                    fontSize = 20.sp
+                                    text = "Play with a friend",
+                                    modifier = Modifier.padding(horizontal = 16.dp)
                                 )
                             }
                         }
 
-                        ResetButton(onClick = mainViewModel::reset)
                     }
-
                 }
             }
         }
     }
+}
+
+@Composable
+fun TicTacAppBar(singlePlayer: Boolean, onCheckedChange: (Boolean) -> Unit) {
+    val checkedState = remember { mutableStateOf(singlePlayer) }
+    TopAppBar(
+        title = { Text(text = "Tic Tac Toe", color = Color.White) },
+        actions = {
+            Row(modifier = Modifier.padding(end = 16.dp)) {
+                Text(text = if (checkedState.value) "Single Player" else "Multi Player")
+                Spacer(modifier = Modifier.preferredWidth(16.dp))
+                Switch(checked = checkedState.value, onCheckedChange = {
+                    checkedState.value = it
+                    onCheckedChange(it)
+                })
+            }
+        }
+    )
 }
 
 @Composable

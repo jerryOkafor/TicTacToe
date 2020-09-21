@@ -1,10 +1,9 @@
 package com.jerryokafor.tictactoe
 
-import android.util.Log
-import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.ViewModel
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
 import com.jerryokafor.tictactoe.engine.GameUtils
 import com.jerryokafor.tictactoe.engine.GameUtils.PLAYER_O
 import com.jerryokafor.tictactoe.engine.GameUtils.PLAYER_X
@@ -12,6 +11,9 @@ import com.jerryokafor.tictactoe.engine.GameUtils.isBoardFull
 import com.jerryokafor.tictactoe.engine.GameUtils.isGameWon
 
 class MainViewModel : ViewModel() {
+
+    var singlePlayer by mutableStateOf(true)
+        private set
 
     var isGameOver by mutableStateOf(false)
         private set
@@ -46,6 +48,10 @@ class MainViewModel : ViewModel() {
     fun reset() {
         isGameOver = false
         board = arrayListOf("", "", "", "", "", "", "", "", "")
+    }
+
+    fun updatePlayerMode() {
+        singlePlayer = singlePlayer.not()
     }
 
 
