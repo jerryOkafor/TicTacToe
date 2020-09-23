@@ -96,7 +96,7 @@ object GameUtils {
         else if (board[2] == player && board[5] == player && board[8] == player) true
 
         //check diagonals
-        else if (board[6] == player && board[4] == player && board[2] == player) true
+        else if (board[2] == player && board[4] == player && board[6] == player) true
         else board[0] == player && board[4] == player && board[8] == player
 
     /**

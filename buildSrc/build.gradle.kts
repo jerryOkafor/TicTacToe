@@ -11,7 +11,7 @@ repositories {
 
 object Plugins {
     object Version {
-        const val gradle = "4.2.0-alpha11"
+        const val gradle = "4.2.0-alpha12"
         const val kotlin = "1.4.0"
     }
 
