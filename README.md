@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-Tic Tac Toe implementation (Single and Mulltiple) players with Kotlin and Jetpack Compose.
+Tic Tac Toe implementation - Single and Double player(s) with Kotlin and JetpackCompose.
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/jerryOkafor/TicTacToe?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/jerryOkafor/TicTacToe?style=social)
