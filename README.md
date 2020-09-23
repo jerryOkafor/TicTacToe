@@ -35,6 +35,9 @@ AndroidStudio >= 4.2
 Support it by joining __[stargazers](https://github.com/jerryOkafor/TicTacToe/stargazers)__ for this repository. :star: <br>
 Please __[follow](https://twitter.com/Nomns0)__ lets connect as we create more amazing experience! 🤩
 
+##Acknowledgment
+[Android Kotlin TicTacToe Game](https://github.com/zeph7/android-kotlin-TicTacToe-game)
+
 # License
 ```xml
 Designed and developed by 2020 skydoves (Jaewoong Eum)
