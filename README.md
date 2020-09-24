@@ -39,4 +39,4 @@ Please __[follow](https://twitter.com/Nomns0)__ lets connect as we create more a
 [Android Kotlin TicTacToe Game](https://github.com/zeph7/android-kotlin-TicTacToe-game)
 
 # License
-TicTacToe is distributed under the MIT license. See [LICENSE](https://github.com/jerryOkafor/TicTacToe/LICENSE) for details.
+TicTacToe is distributed under the MIT license. See [LICENSE](https://github.com/jerryOkafor/TicTacToe/blob/master/LICENSE) for details.
