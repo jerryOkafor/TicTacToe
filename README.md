@@ -6,7 +6,7 @@ Tic Tac Toe implementation - Single and Double player(s) with Kotlin and Jetpack
 ![GitHub watchers](https://img.shields.io/github/watchers/jerryOkafor/TicTacToe?style=social)
 ![GitHub followers](https://img.shields.io/github/followers/jerryOkafor?style=social)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/jerryOkafor/TicTacToe/blob/master/LICENSE.md)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Nomns0?style=social)](https://twitter.com/Nomns0) 
+[![Twitter](https://img.shields.io/badge/Twitter-@Nomns0-9C27B0.svg)](https://twitter.com/Nomns0) 
 
 ## Libraries
 * 100% Kotlin
